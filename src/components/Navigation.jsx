@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  // 2. Initialize useNavigate
+  const navigate = useNavigate() 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,8 +17,12 @@ export function Navigation() {
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== "/") {
-      window.location.href = `/#${sectionId}`
+      // **CHANGED:** Use navigate to perform a client-side route change
+      // This changes the URL to /#sectionId without a full page reload
+      // The hash (#sectionId) is then available when HomePage.jsx mounts.
+      navigate(`/#${sectionId}`) 
     } else {
+      // If already on the home page, scroll immediately
       const element = document.getElementById(sectionId)
       if (element) {
         element.scrollIntoView({ behavior: "smooth" })
@@ -39,12 +45,6 @@ export function Navigation() {
           <Link to="/about" className="text-muted-foreground hover:text-foreground hover:underline transition-colors">
             About
           </Link>
-          {/* <button
-            onClick={() => scrollToSection("projects")}
-            className="text-muted-foreground hover:text-foreground hover:underline transition-colors"
-          >
-            Work
-          </button> */}
           <Link to="/work" className="text-muted-foreground hover:text-foreground hover:underline transition-colors">
             Work
           </Link>
