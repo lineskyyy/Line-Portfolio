@@ -42,7 +42,7 @@ export function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold">
             My <span className="text-accent">Projects</span>
           </h2>
-          <Link to="/works" className="text-muted-foreground hover:text-accent transition-colors hidden md:block">
+          <Link to="/work" className="text-muted-foreground hover:text-accent transition-colors hidden md:block">
             See all my works →
           </Link>
         </div>
