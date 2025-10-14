@@ -29,13 +29,13 @@ export function Services() {
     <section id="services" className="py-32 px-6 relative z-10">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in-up">
-          WHAT I <span className="text-accent">DO</span>
+          MY <span className="text-accent">FORTES</span>
         </h2>
         <p
           className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto animate-fade-in-up"
           style={{ animationDelay: "0.1s" }}
         >
-          Specialized services to bring your digital vision to life
+          My specialized services to bring your digital vision to life
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Github, Linkedin, Mail, Twitter, MapPin, Calendar, ExternalLink } from "lucide-react"
+import { Github, Linkedin, Mail, Instagram, MapPin, Calendar, ExternalLink } from "lucide-react"
 import { RetroElements } from "../components/RetroElements"
 
 export default function AboutPage() {
@@ -143,16 +143,31 @@ export default function AboutPage() {
 
             {/* Social Links */}
             <div className="flex items-center gap-4 justify-center lg:justify-start">
-              <a href="https://github.com/lineskyyy" className="text-muted-foreground hover:text-accent transition-colors" aria-label="GitHub">
+              <a href="https://github.com/lineskyyy" 
+                  className="text-muted-foreground hover:text-accent transition-colors" 
+                  aria-label="GitHub"
+                  target="_blank"
+                  >
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://www.linkedin.com/in/linus-sambile-92ab77317/" className="text-muted-foreground hover:text-accent transition-colors" aria-label="LinkedIn">
+              <a 
+                href="https://www.linkedin.com/in/linus-sambile-92ab77317/" 
+                className="text-muted-foreground hover:text-accent transition-colors" 
+                aria-label="LinkedIn"
+                target="_blank">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Twitter">
-                <Twitter className="w-5 h-5" />
+              <a href="https://www.instagram.com/linesssky/" 
+                className="text-muted-foreground hover:text-accent transition-colors"
+                aria-label="Twitter"
+                target="_blank">
+                <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Email">
+              <a href="mailto:linus.karlcs@gmail.com" 
+                className="text-muted-foreground hover:text-accent transition-colors" 
+                aria-label="Email"
+                target="_blank"
+                >               
                 <Mail className="w-5 h-5" />
               </a>
             </div>

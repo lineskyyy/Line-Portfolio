@@ -14,24 +14,26 @@ export function Contact() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
           <a
-            href="mailto:hello@yourname.com"
+            href="mailto:linus.karlcs@gmail.com"
             className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
+            target="_blank"
           >
             <Mail className="w-5 h-5" />
             linus.karlcs@gmail.com
           </a>
-          <a
-            href="#"
+          <div
+            // href="#"
             className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
           >
             <MapPin className="w-5 h-5" />
             General Trias, Cavite, PH
-          </a>
+          </div>
         </div>
 
         <a
           href="mailto:linus.karlcs@gmail.com?subject=Inquiry%20from%20Portfolio&body=Hi%20Linus,%0D%0A%0D%0AI%20would%20like%20to%20get%20in%20touch%20regarding..."
           className="px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors inline-block"
+          target="_blank"
         >
           Get In Touch
         </a>

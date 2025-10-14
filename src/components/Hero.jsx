@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { Github, Linkedin, Instagram, Mail } from "lucide-react"
 import { RetroElements } from "./RetroElements"
 import ParticleText from "./ParticleText"
 
@@ -60,16 +60,18 @@ export function Hero() {
             style={{ animationDelay: "0.7s" }}
           >
             <a
-              href="#"
+              href="https://www.instagram.com/linesssky/"
               className="text-muted-foreground hover:text-primary transition-all hover:scale-125"
               aria-label="Twitter"
+              target="_blank"
             >
-              <Twitter className="w-5 h-5" />
+              <Instagram className="w-5 h-5" />
             </a>
             <a
               href="https://github.com/lineskyyy"
               className="text-muted-foreground hover:text-primary transition-all hover:scale-125"
               aria-label="GitHub"
+              target="_blank"
             >
               <Github className="w-5 h-5" />
             </a>
@@ -77,13 +79,15 @@ export function Hero() {
               href="https://www.linkedin.com/in/linus-sambile-92ab77317/"
               className="text-muted-foreground hover:text-primary transition-all hover:scale-125"
               aria-label="LinkedIn"
+              target="_blank"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://mail.google.com/mail/u"
+              href="mailto:linus.karlcs@gmail.com"
               className="text-muted-foreground hover:text-primary transition-all hover:scale-125"
               aria-label="Email"
+              target="_blank"
             >
               <Mail className="w-5 h-5" />
             </a>
