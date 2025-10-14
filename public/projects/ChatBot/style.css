@@ -1,0 +1,460 @@
+/* Reset and body styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif; /* Changed to Zen Kaku Gothic Antique */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('2.png') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* Background fix */
+/* html {
+  
+} */
+
+/* Add an overlay */
+html::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Chat input and button styles */
+#message-input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #9c27b0;
+  background-color: #0b0019;
+  color: #fff;
+}
+
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align the chat content and typing container at the bottom */
+  align-items: center;
+  width: 100%;
+  max-width: 800px; /* Match the chat container width */
+  height: 100vh; /* Full height of the viewport */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #9c27b0;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #7b1fa2;
+}
+
+/* Links styling */
+a {
+  color: #9c27b0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Logo styling */
+.logo-container {
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.logo {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif; /* Changed to Zen Kaku Gothic Antique */
+  color: #c2c7c2;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* Clear chat button */
+.clear-chat-btn {
+  width: 160px;
+  user-select: none;
+  cursor: pointer;
+  background: transparent;
+  color: #c2c7c2;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border: 1px solid #c2c7c2;
+  padding: 8px 12px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.clear-chat-btn i {
+  font-size: 13px;
+}
+
+.clear-chat-btn:hover {
+  background-color: #c2c7c2;
+  color: #000;
+}
+
+
+/* Chat container styling */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex-grow: 1; /* Allow the chat container to take up available space */
+  max-height: 100%; /* Remove height restriction */
+  overflow-y: auto; /* Add scroll if content exceeds height */
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+/* Scrollbar customization */
+.chat-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* Lighter, modern scrollbar */
+  border-radius: 5px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: transparent; /* Clean track */
+}
+
+.chat-content {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 15px;
+  max-width: 60%;
+  position: relative;
+  clear: both;
+}
+
+/* Typing container for consistency with wider chat container */
+.typing-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(197, 187, 187, 0.637);
+  border-radius: 20px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: auto; /* Ensure the typing container is at the bottom */
+  height: 55px;
+}
+
+.typing-textarea {
+  display: flex;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  background-color: rgba(108, 103, 103, 0.438); /* Slight background for better text visibility */
+  padding: 10px 15px; /* Neat padding */
+}
+
+
+/* Adjust the textarea styling for the chat input */
+#chat-input {
+  width: 90%; /* Increased width for wider appearance */
+  background-color: transparent;
+  color: #f5f2f2;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  resize: none;
+  height: 40px; /* Slightly taller but still sleek */
+  padding: 10px 15px; /* Increased padding for a more balanced look */
+  margin-right: 10px;
+  border-radius: 15px; /* Rounded corners for the input field */
+  box-sizing: border-box; /* Ensure padding is accounted for within width */
+}
+
+
+/* Send button styling for a balanced sleek look */
+#send-btn {
+  background-color: #c2c7c2;
+  color: #000;
+  font-size: 14px;
+  padding: 8px 12px; /* Balanced padding for sleekness */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 20px; /* Rounded edges */
+  display: flex;
+  align-items: center;
+}
+
+#send-btn:hover {
+  background-color: #c2c7c2;
+  color: #000;
+}
+
+/* Send button icon styles */
+#send-btn svg {
+  margin-right: 5px; /* Spacing between icon and text */
+  width: 18px; /* Icon size */
+  height: 18px; /* Icon size */
+  fill: #c2c7c2; /* Icon color */
+}
+
+/* Optional: Make send button text disappear on hover */
+#send-btn:hover span {
+  color: #c2c7c2;
+  transition: opacity 0.3s;
+}
+
+
+/* Suggestions and typing indicator */
+.topic-btn {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(121, 115, 115, 0.316); /* Suggestion button color */
+  cursor: pointer;
+}
+
+.typing-indicator {
+  display: inline-block;
+}
+
+.dot {
+  display: inline-block;
+  opacity: 0;
+  animation: blink 1.4s infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Animation for typing dots */
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* From Uiverse.io by Saad3092003 */ 
+.custom-send-btn {
+  font-family: inherit;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+  color: white;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  cursor: pointer; /* Add cursor style */
+}
+
+.custom-send-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  padding: 0em;
+  background: linear-gradient(to bottom, #5bd9ec 0%,#97c3ff 100%);
+}
+
+.custom-send-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-send-btn span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+
+.custom-send-btn:hover span {
+  scale: 0;
+  font-size: 0%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.custom-send-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
+}
+
+.custom-send-btn .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.custom-send-btn:hover .svg-wrapper {
+  background-color: rgba(43, 169, 228, 0.897);
+  width: 54px;
+  height: 54px;
+}
+
+.custom-send-btn:hover svg {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  transform: rotate(45deg);
+}
+
+/* Add responsive support for smaller screens */
+@media screen and (max-width: 600px) {
+  .bubble {
+    max-width: 85%; /* Adjust max width for smaller devices */
+  }
+}
+
+.user {
+  color: #d1e7dd;
+  border: 0.5px solid;
+  border-color: #d1e7dd;
+  background-color:   rgba(51, 49, 49, 0.438);
+  align-self: flex-end; /* Align user bubble to the right */
+}
+.chat-content.user .chat-inner-body{
+  max-width: 100%;
+}
+
+
+
+.bot {
+  color: #f8d7da;
+  border: 0.5px solid;
+  border-color: #f8d7da;
+  background-color:   rgba(51, 49, 49, 0.438);
+  align-self: flex-start; /* Align bot bubble to the left */
+}
+
+.chat-content.bot .chat-inner-body{
+  max-width: 100%;
+}
+
+.chat-inner-body {
+  margin: 0;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+
+.topic-btn:hover {
+  background-color: #1f2020; /* Suggestion button hover effect */
+}
+
+.user {
+  color: #d1e7dd;
+  border: 0.5px solid;
+  border-color: #d1e7dd;
+  background-color: rgba(51, 49, 49, 0.438);
+  align-self: flex-end; /* Align user bubble to the right */
+  margin-left: auto; /* Push user bubble to the far right */
+}
+
+/* Bot bubble styling */
+.bot {
+  color: #f8d7da;
+  border: 0.5px solid;
+  border-color: #f8d7da;
+  background-color: rgba(51, 49, 49, 0.438);
+  align-self: flex-start; /* Align bot bubble to the left */
+  margin-right: auto; /* Push bot bubble to the far left */
+}
+
+/* Inner body styling */
+.chat-inner-body {
+  margin: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(10, 10, 10, 0.95);
+}
+
+.navbar-brand {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  color: #00ffcc !important;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.nav-link {
+  color: #e0e0e0 !important;
+  transition: color 0.3s, transform 0.3s;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #00ffcc;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.nav-link:hover {
+  color: #00ffcc !important;
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Adjust main content to account for fixed navbar */
+.chat-wrapper {
+  padding-top: 70px; /* Adjust this value based on your navbar height */
+}

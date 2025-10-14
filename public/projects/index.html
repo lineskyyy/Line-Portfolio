@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linesky's Shenanigans</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Linesky's Shenanigans</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">LINESKY'S SHENANIGANS</h1>
+            <p class="hero-subtitle">My personal portfolio for Artificial Intelligence subject.</p>
+            <a href="#projects" class="btn btn-primary btn-lg mt-4">Explore Projects</a>
+        </div>
+        <div class="hero-overlay"></div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="profile-container text-center mb-4">
+                <div class="profile-picture-container">
+                    <img src="me.jpg" alt="Linus Sambile" class="profile-picture">
+                </div>
+                <h3 class="profile-name mt-3">Linus Sambile</h3>
+            </div>
+            <p class="section-subtitle">
+                Welcome to my AI Portfolio! I am an ispiring frontend expert wannabe, feel free to use them!
+            </p>
+            <p class="about-text">
+                I am a 4th year college Computer Science student that is hanging by the thread nyahaha. These are the
+                projects that I've made for the whole semester in our Artificial Intelligence subject. Also keep in mind that the time interval between
+                the projects are 1 month apart, so if you notice some inconsistencies in the design, you now know why.Other than that, there's not much to see here...
+            </p>
+            <br />
+            <p class="about-text">
+                Throughout almost 4 years of being a Computer Science student, these are the tools I've managed to
+                learn so far:
+            </p>
+            <div class="expertise-icons text-center mt-4">
+                <i class="fab fa-python fa-3x mx-2" title="Python"></i>
+                <i class="fab fa-java fa-3x mx-2" title="Java"></i>
+                <i class="fab fa-react fa-3x mx-2" title="React"></i>
+                <i class="fab fa-figma fa-3x mx-2" title="Figma"></i>
+                <i class="fas fa-palette fa-3x mx-2" title="Canva"></i>
+                <i class="fab fa-microsoft fa-3x mx-2" title="Microsoft Apps"></i>
+                <i class="fab fa-html5 fa-3x mx-2" title="HTML"></i>
+                <i class="fab fa-bootstrap fa-3x mx-2" title="Bootstrap"></i>
+                <i class="fab fa-css3-alt fa-3x mx-2" title="CSS"></i>
+                <i class="fab fa-js-square fa-3x mx-2" title="JavaScript"></i>
+                <i class="fab fa-sass fa-3x mx-2" title="Tailwind"></i>
+                <i class="fas fa-bolt fa-3x mx-2" title="Vite"></i>
+                <i class="fas fa-database fa-3x mx-2" title="MySQL"></i>
+                <i class="fas fa-cloud fa-3x mx-2" title="Supabase"></i>
+                <i class="fas fa-text-height fa-3x mx-2" title="Pytesseract"></i>
+                <i class="fab fa-cuttlefish fa-3x mx-2" title="C#"></i>
+                <i class="fas fa-code fa-3x mx-2" title="C++"></i>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My AI Projects</h2>
+            <div class="row justify-content-center">
+                <!-- Card 1: Image Classifier -->
+                <div class="col-md-4 col-lg-4 mb-4">
+                    <a href="./Image Classifier/index.html" class="card-link">
+                        <div class="card project-card">
+                            <div class="card-body">
+                                <div class="card-content">
+                                    <i class="fas fa-image card-icon"></i>
+                                    <h5 class="card-title">Image Classifier</h5>
+                                    <p class="card-description">A machine learning model that categorizes images into predefined classes.</p>
+                                </div>
+                            </div>
+                            <div class="card-image">
+                                <div class="initial-image" style="background-image: url('VR.jpg');"></div>
+                                <div class="hover-image" style="background-image: url('IC-BG.png');"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Card 2: Chatbot -->
+                <div class="col-md-4 col-lg-4 mb-4">
+                    <a href="./ChatBot/index.html" class="card-link">
+                        <div class="card project-card">
+                            <div class="card-body">
+                                <div class="card-content">
+                                    <i class="fas fa-comments card-icon"></i>
+                                    <h5 class="card-title">Chatbot</h5>
+                                    <p class="card-description">An AI chatbot that suggests topics and engages in
+                                        meaningful conversations.</p>
+                                </div>
+                                <div class="card-image">
+                                    <div class="initial-image" style="background-image: url('Thinker.jpg');"></div>
+                                    <div class="hover-image" style="background-image: url('2.png');"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Card 3: Expert System -->
+                <div class="col-md-4 col-lg-4 mb-4">
+                    <a href="./Expert System/index.html" class="card-link">
+                        <div class="card project-card">
+                            <div class="card-body">
+                                <div class="card-content">
+                                    <i class="fas fa-brain card-icon"></i>
+                                    <h5 class="card-title">Expert System</h5>
+                                    <p class="card-description">A system designed to provide intelligent recommendations
+                                        based on RA 8293.</p>
+                                </div>
+                                <div class="card-image">
+                                    <div class="initial-image" style="background-image: url('Justice.jpg');"></div>
+                                    <div class="hover-image" style="background-image: url('ES-BG.png');"></div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-subtitle">Feel free to reach out for collaboration or inquiries! <br />(probably wouldn't respont to you tho haha)</p>
+            <div class="d-flex justify-content-center">
+                <a href="mailto:linusksambile@gmail.com" class="btn btn-outline-primary me-3">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/linus-sambile-92ab77317/" class="btn btn-outline-info me-3"
+                    target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/lineskyyy" class="btn btn-outline-light" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

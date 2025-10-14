@@ -1,0 +1,229 @@
+/* General Styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Animated Background */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #02235f, #1a1a1a, #2a2a2a, #000000);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    z-index: -1;
+}
+.section{
+
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero {
+    background-image: url("Test4.png");
+    height: 70vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 100%;
+    background-size: cover;
+    background-position: center top;
+}
+
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Content Container */
+.content-container {
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* Heading */
+.heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 1rem 2rem;
+    display: inline-block;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+
+
+.heading-text {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+/* Neon Border Animation */
+.neon-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.neon-border::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #00ffff
+    );
+    animation: rotate 4s linear infinite;
+}
+
+.neon-border::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: #000000;
+    border-radius: 5px;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Subheading */
+.subheading {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #a0a0a0;
+}
+
+/* Card Styling */
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    margin: 1rem;
+    border: none;
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #00ffff
+    );
+    animation: rotate 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-body {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+    text-align: center;
+    background: #000000;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00ffff;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: 1rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.card:hover .card-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Remove underline from links */
+a.card-link {
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 2rem;
+    }
+    
+    .card {
+        margin: 1rem 0;
+    }
+    
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    
+    .col-md-4 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+

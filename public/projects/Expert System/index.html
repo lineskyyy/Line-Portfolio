@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A & S Expert System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Linesky's Shenanigans</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+        </div>
+    </nav>
+
+    <img id="ace" src="DDPhoenixRead.webp" alt="">
+
+    <div id="container" class="container-fluid col-11 fixed-bottom p-3 mb-3 rounded">
+        <header class="text-center mb-4">
+            <h1 class="display-4">Intellectual Property Violations</h1>
+            <p class="lead">Select the area of law to know if you've committed a violation under Republic Act No. 8293 of the Philippines.</p>
+        </header>
+
+        <!-- Area Selection Form -->
+        <form id="expertForm">
+            <div class="form-group" id="areaSelection">
+                <label for="area">Choose the area of law:</label>
+                <select class="form-control" id="area" name="area">
+                    <option value="patent">Patent</option>
+                    <option value="copyright">Copyright</option>
+                    <option value="trademark">Trademark</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" id="startBtn">Start</button>
+
+            <a href="https://lawphil.net/statutes/repacts/ra1997/ra_8293_1997.html" target="_blank" rel="noopener noreferrer" class="d-flex justify-content-center">Go to the official website about this law.</a>
+        </form>
+
+        <!-- Questions Section -->
+        <div id="questionsContainer" class="question-section" style="display:none;">
+            <div id="question" class="text-center mb-3 h3"></div>
+            <div class="button-container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 mb-2">
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary flex-grow-1 mr-2" id="yes-button">Yes</button>
+                            <button type="button" class="btn btn-danger flex-grow-1 mr-2" id="no-button">No</button>
+                            <button type="button" class="btn btn-warning flex-grow-1" id="skip-button" style="display: none;">Skip</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="button" class="btn btn-secondary mr-2" id="previous-button" style="display:none;">Previous</button>
+                    <button type="button" class="btn btn-secondary" id="backToMainFromQuestions">Back to Main</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Result Section -->
+        <div id="result-container" class="result-section text-center" style="display:none;">
+            <h2>⚠️ Penalty ⚠️:</h2>
+            <p id="result" class="h3">Your result will appear here based on your answers.</p>
+            <audio id="resultAudio" controls style="display:none;">
+                <source src="result.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button type="button" class="btn btn-secondary btn-block mt-3" id="backToMainFromResult">Back to Main</button>
+            <a href="https://lawphil.net/statutes/repacts/ra1997/ra_8293_1997.html" target="_blank" rel="noopener noreferrer" class="d-flex justify-content-center mt-1">Go to the official website about this law for more information</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

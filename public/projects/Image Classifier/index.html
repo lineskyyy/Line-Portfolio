@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachable Machine Image Model</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Linesky's Shenanigans</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <h1 class="mb-4">Linesky's Image Classifier</h1>
+        <div id="button-container">
+            <button id="action-button" type="button" class="btn btn-primary btn-lg btn-action" onclick="toggleWebcam()">Start</button>
+        </div>
+        <div id="webcam-container" class="mt-4"></div>
+        <div id="label-container" class="mt-4"></div>
+    </div>
+
+    <!-- TensorFlow.js and Teachable Machine scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const audio = new Audio('shart.mp3');
+        const URL = "https://teachablemachine.withgoogle.com/models/S9H07UA7H/";
+        let model, webcam, labelContainer, maxPredictions, stopLoop = true;
+
+        async function toggleWebcam() {
+            const actionButton = document.getElementById("action-button");
+
+            if (stopLoop) {
+                // Start the webcam
+                await init();
+                actionButton.textContent = "Stop";
+                actionButton.classList.remove("btn-primary");
+                actionButton.classList.add("btn-danger");
+                actionButton.onclick = toggleWebcam;
+                stopLoop = false;
+                window.requestAnimationFrame(loop);
+            } else {
+                // Stop the webcam
+                stopWebcam();
+            }
+        }
+
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            const flip = true;
+            webcam = new tmImage.Webcam(300, 300, flip); // Increased size of webcam box
+            await webcam.setup();
+            await webcam.play();
+
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            labelContainer = document.getElementById("label-container");
+            labelContainer.innerHTML = ''; // Clear any previous predictions
+            for (let i = 0; i < maxPredictions; i++) {
+                labelContainer.appendChild(document.createElement("div"));
+            }
+        }
+
+        async function loop() {
+            if (!stopLoop) {
+                webcam.update();
+                await predict();
+                window.requestAnimationFrame(loop);
+            }
+        }
+
+        async function predict() {
+            const prediction = await model.predict(webcam.canvas);
+            for (let i = 0; i < maxPredictions; i++) {
+                const probabilityPercentage = (prediction[i].probability * 100).toFixed(2); // Convert to percentage
+                const classPrediction = `${prediction[i].className}: ${probabilityPercentage}%`; // Display as percentage
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+
+        function stopWebcam() {
+            webcam.stop();
+
+            // Remove the webcam canvas
+            document.getElementById("webcam-container").innerHTML = "";
+
+            // Clear label container
+            labelContainer.innerHTML = "";
+
+            // Replace stop button back to start button
+            const actionButton = document.getElementById("action-button");
+            actionButton.textContent = "Start";
+            actionButton.classList.remove("btn-danger");
+            actionButton.classList.add("btn-primary");
+            stopLoop = true;
+
+            // Play the audio when the stop button is pressed
+            audio.play();
+        }
+    </script>
+</body>
+
+</html>
+
