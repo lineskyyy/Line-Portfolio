@@ -23,6 +23,9 @@ const skills = [
 export function Skills() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  // The fade-out color will now be dynamic, matching the theme's background color
+  const fadeGradientColor = `rgb(var(--background))`;
+
   return (
     <section className="pt-32 px-16 relative ">
       <div className="container mx-auto">
@@ -93,9 +96,19 @@ export function Skills() {
             ))}
           </div>
 
-          {/* Fade edges */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none z-10" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent pointer-events-none z-10" />
+          {/* Fade edges - using dynamic styles to match the theme background */}
+          <div
+            className="absolute inset-y-0 left-0 w-32 pointer-events-none z-10"
+            style={{
+              background: `linear-gradient(to right, ${fadeGradientColor}, transparent)`,
+            }}
+          />
+          <div
+            className="absolute inset-y-0 right-0 w-32 pointer-events-none z-10"
+            style={{
+              background: `linear-gradient(to left, ${fadeGradientColor}, transparent)`,
+            }}
+          />
         </div>
       </div>
     </section>
