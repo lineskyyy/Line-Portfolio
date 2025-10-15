@@ -21,7 +21,7 @@ export function Hero() {
       <div className="container mx-auto relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <p className="text-muted-foreground text-sm uppercase tracking-wider animate-fade-in-up">
-            Hello, I'm a Designer & Developer
+            Hey, why don't you try to hover on these particles :D
           </p>
 
           <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
