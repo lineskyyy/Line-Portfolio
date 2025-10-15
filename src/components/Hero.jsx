@@ -47,7 +47,7 @@ export function Hero() {
               View My Work
             </button>
             <a
-              href="/resume.pdf"
+              href="/public/Linus Sambile_Resume.pdf"
               download="Linus_Sambile_Resume.pdf"
               className="px-6 py-3 border border-border rounded-lg hover:scale-105 transition-transform bg-transparent inline-block"
             >
