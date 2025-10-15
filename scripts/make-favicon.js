@@ -13,7 +13,7 @@ import path from 'path'
     const pngToIcoModule = await import('png-to-ico')
     const pngToIco = pngToIcoModule.default || pngToIcoModule
 
-    const input = path.resolve(process.cwd(), 'public/images/lkcs.png')
+    const input = path.resolve(process.cwd(), 'public/images/lkcsw.png')
     const out = path.resolve(process.cwd(), 'public/favicon.ico')
 
     if (!fs.existsSync(input)) {
