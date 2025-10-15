@@ -2,7 +2,8 @@ import { Mail, MapPin } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-32 px-6 bg-muted/30">
+    // <section id="contact" className="py-32 px-6 bg-muted/30">
+      <section id="contact" className="py-32 px-6">
       <div className="container mx-auto max-w-4xl text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Let's work <span className="text-accent">together</span>

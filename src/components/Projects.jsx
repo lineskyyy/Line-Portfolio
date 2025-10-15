@@ -36,7 +36,8 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-32 px-6 bg-muted/30">
+    // <section id="projects" className="py-32 px-6 bg-muted/30">
+    <section id="projects" className="py-8 px-6">
       <div className="container mx-auto max-w-7xl">
         <div className="flex items-center justify-between mb-16">
           <h2 className="text-4xl md:text-5xl font-bold">
