@@ -34,7 +34,7 @@ export default function AboutPage() {
 
   const education = [
     {
-      title: "Bachelor's of Science in Computer Science",
+      title: "Bachelor of Science in Computer Science",
       institution: "Lyceum of the Philippines University - Cavite",
       year: "2021-2025",
       description: "Yes, I am a Computer Science graduate.",
@@ -180,8 +180,8 @@ export default function AboutPage() {
               <div className="space-y-8 animate-fade-in-up">
                 <div>
                   <h2 className="text-4xl font-bold mb-6">
-                    I'm a <span className="text-primary">Computer Science </span> graduate <span className="text-secondary">web developer</span>, dedicated in crafting{" "}
-                    <span className="text-accent">accessible</span>, pixel-perfect user interfaces.
+                    I'm a <span className="text-primary">Computer Science </span> graduate that specializes in developing <span className="text-secondary">accessible </span> and{" "}
+                    <span className="text-accent">pixel-perfect</span> user interfaces.
                   </h2>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
