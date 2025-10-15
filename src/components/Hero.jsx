@@ -32,7 +32,7 @@ export function Hero() {
             className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up"
             style={{ animationDelay: "0.5s" }}
           >
-            This is my <span className="text-primary">personal</span>{" "}and{" "}
+            Welcome to my <span className="text-primary">personal</span>{" "}and{" "}
             <span className="text-accent">professional</span>{" "}<span className="text-secondary">portfolio</span>.
           </p>
 
