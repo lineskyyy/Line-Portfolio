@@ -1,4 +1,4 @@
-import Saturn from "./Saturn" // Import the new component
+// import Saturn from "./Saturn"
 
 export function About() {
   return (
@@ -36,7 +36,8 @@ export function About() {
                   It uses absolute positioning and w-full h-full to fill the parent card's space 
                   while maintaining a transparent background.
                 */}
-                <Saturn />
+                {/* <Saturn /> */}
+                WIP lol
               </div>
             </div>
           </div>

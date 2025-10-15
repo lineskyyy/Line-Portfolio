@@ -35,7 +35,7 @@ export function Navigation() {
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="text-xl font-bold">
-          W0RLD of L1N3<span className="text-accent">.</span>
+          L1N3'S W0RLD<span className="text-accent">.</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

@@ -180,14 +180,15 @@ export default function AboutPage() {
               <div className="space-y-8 animate-fade-in-up">
                 <div>
                   <h2 className="text-4xl font-bold mb-6">
-                    Hi, I'm a <span className="text-primary">developer</span> passionate about crafting{" "}
+                    I'm a <span className="text-primary">Computer Science </span> graduate <span className="text-secondary">web developer</span>, dedicated in crafting{" "}
                     <span className="text-accent">accessible</span>, pixel-perfect user interfaces.
                   </h2>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
-                      I'm a front-end developer passionate about crafting clean, responsive, and accessible web
-                      interfaces using modern tools like React, JavaScript, and Tailwind CSS. I love building great experiences
-                      that not only look great but are meticulously built for performance and usability.
+                      I am a front-end developer who is enthusiastic about creating clean, responsive, and 
+                      accessible web interfaces using modern tools such as React, JavaScript, and Tailwind CSS. 
+                      My primary focus revolves around creating user-friendly experiences that are meticulously
+                       designed for performance and usability, in addition to their aesthetic appeal.
                     </p>
                     <p>
                       Currently, I am a{" "}
