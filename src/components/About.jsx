@@ -1,4 +1,5 @@
-import { ImageGallery } from "./ImageGallery"
+// import { ImageGallery } from "./ImageGallery"
+import RotatingGlobe from "./RotatingGlobe";
 
 export function About() {
   return (
@@ -25,20 +26,22 @@ export function About() {
             </p>
           </div>
 
-          {/* Space-Tech Polaroid Display */}
+          {/* Rotating controlled Globe Display */}
           <div className="relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <div className="h-[550px] w-full rounded-2xl bg-black/30 border border-white/10 p-4 shadow-[0_0_40px_rgba(0,0,0,0.6)] backdrop-blur-md flex flex-col items-center justify-start overflow-hidden relative">
+            <div className="h-auto w-full rounded-2xl border border-white/10 p-4 shadow-[0_0_40px_rgba(0,0,0,0.6)] backdrop-blur-md flex flex-col items-center justify-start overflow-hidden relative">
               
               {/* Subtle space glow */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.08),transparent_70%)]" />
+              {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.08),transparent_70%)]" /> */}
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-4 tracking-wide font-mono">
+              {/* <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-4 tracking-wide font-mono">
                 Unrelated Hobbies of Mine
               </h3>
 
               <div className="relative w-full h-full flex items-center justify-center">
                 <ImageGallery />
-              </div>
+              </div> */}
+
+              <RotatingGlobe />
 
               {/* Futuristic corner nodes */}
               <span className="absolute top-4 left-4 w-3 h-3 bg-accent/70 rounded-full blur-sm shadow-[0_0_10px_rgba(0,255,255,0.6)]" />
