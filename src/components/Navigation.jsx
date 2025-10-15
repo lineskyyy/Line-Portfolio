@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react"
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import { useTheme } from "../contexts/ThemeContext"
+import { Moon, Sun } from "lucide-react"
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  // 2. Initialize useNavigate
-  const navigate = useNavigate() 
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,12 +18,8 @@ export function Navigation() {
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== "/") {
-      // **CHANGED:** Use navigate to perform a client-side route change
-      // This changes the URL to /#sectionId without a full page reload
-      // The hash (#sectionId) is then available when HomePage.jsx mounts.
-      navigate(`/#${sectionId}`) 
+      window.location.href = `/#${sectionId}`
     } else {
-      // If already on the home page, scroll immediately
       const element = document.getElementById(sectionId)
       if (element) {
         element.scrollIntoView({ behavior: "smooth" })
@@ -53,6 +50,13 @@ export function Navigation() {
             className="text-muted-foreground hover:text-foreground hover:underline transition-colors"
           >
             Services
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5 text-accent" /> : <Moon className="w-5 h-5 text-accent" />}
           </button>
           <button
             onClick={() => scrollToSection("contact")}
