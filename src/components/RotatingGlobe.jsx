@@ -1,19 +1,19 @@
 import React, { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei"; 
+import { OrbitControls, useGLTF } from "@react-three/drei";
 
 // The GlobeModel component loads the model and sets its initial scale.
 function GlobeModel() {
   const { scene } = useGLTF("/models/globe.glb");
   const globeRef = useRef();
-  
+
   // Set an initial rotation for a better starting view.
   if (globeRef.current) {
-    globeRef.current.rotation.y = Math.PI / 4; 
+    globeRef.current.rotation.y = Math.PI / 4;
     globeRef.current.rotation.x = Math.PI / 8;
   }
-  
-  return <primitive ref={globeRef} object={scene} scale={1.2} />;
+
+  return <primitive ref={globeRef} object={scene} scale={1} />;
 }
 
 export default function RotatingGlobe() {
@@ -24,12 +24,22 @@ export default function RotatingGlobe() {
         width: "100%",
         height: "480px",
         overflow: "hidden",
-        cursor: "grab", 
+        cursor: "grab",
       }}
     >
-      <Canvas
-        camera={{ position: [0, 0, 4], fov: 45 }}
+      {/* FIX: 
+        1. Set position to 'absolute' so it floats above the canvas.
+        2. Use 'bottom-4' (or 'inset-x-0 bottom-4' if using Tailwind) to place it at the bottom.
+        3. Use 'z-10' to ensure it renders on top of the Canvas (which is the default z-index).
+      */}
+      <p 
+        className="absolute w-full text-sm text-center text-gray-600 z-10" 
+        style={{ bottom: '1rem' }}
       >
+        hold and drag to spin in any direction
+      </p>
+
+      <Canvas camera={{ position: [0, 0, 4], fov: 45 }}>
         <ambientLight intensity={0.6} />
         <directionalLight position={[2, 2, 2]} intensity={1.2} />
 
@@ -38,28 +48,18 @@ export default function RotatingGlobe() {
 
         {/* OrbitControls configured for auto-spin with manual override and momentum */}
         <OrbitControls
-          enableZoom={false} 
-          enablePan={false}  
-          rotateSpeed={0.8}  
-          
-          // CRITICAL: Damping allows momentum (inertia) to fade. Lower is less friction/slower fade.
-          // The default is 0.05. Setting it lower (e.g., 0.01) gives a longer, slower fade effect.
-          dampingFactor={0.02} 
-          
+          enableZoom={false}
+          enablePan={false}
+          rotateSpeed={0.8}
+          dampingFactor={0.02}
           minPolarAngle={0}
           maxPolarAngle={Math.PI}
-          
-          // --- FIX for default auto-spin with drag momentum ---
-          // 1. Enable continuous automatic spinning
-          autoRotate={true} 
-          // 2. Set the desired spin rate for the default spin
-          // A positive value spins right (default). A negative value spins left.
-          autoRotateSpeed={1.5} 
-          
-          // Controls must be enabled to allow manual drag rotation
-          enabled={true} 
+          autoRotate={true}
+          autoRotateSpeed={1.5}
+          enabled={true}
         />
       </Canvas>
+      
     </div>
   );
 }

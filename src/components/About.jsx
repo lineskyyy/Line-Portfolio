@@ -40,7 +40,6 @@ export function About() {
               <div className="relative w-full h-full flex items-center justify-center">
                 <ImageGallery />
               </div> */}
-
               <RotatingGlobe />
 
               {/* Futuristic corner nodes */}
