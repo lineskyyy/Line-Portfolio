@@ -367,7 +367,7 @@ export default function ParticleText() {
       ref={canvasRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-auto h-[250px] md:h-[550px] cursor-pointer mx-auto"
+      className="block w-full max-w-[900px] h-[250px] md:h-[550px] cursor-pointer mx-auto"
     />
   )
 }
