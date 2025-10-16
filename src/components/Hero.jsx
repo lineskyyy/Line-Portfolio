@@ -28,12 +28,12 @@ export function Hero() {
             Hey, why don't you try to hover on these particles :D
           </p>
 
-          <div className="animate-fade-in-up relative" style={{ animationDelay: "0.2s" }}>
+          <div className="animate-fade-in-up relative flex flex-col items-center" style={{ animationDelay: "0.2s" }}>
             {particleMode === "optimized" ? <OptimizedParticle key="optimized" /> : <ParticleText key="original" />}
 
             <button
               onClick={() => setParticleMode((prev) => (prev === "optimized" ? "original" : "optimized"))}
-              className="absolute bottom w-auto left-1/2 -translate-x-1/2 px-2 py-1 border border-gray-600 hover:bg-primary hover:border-primary hover:text-white text-gray-600 text-xs rounded-full transition-colors shadow-lg z-10"
+              className="md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2 mt-3 md:mt-0 w-auto px-2 py-1 border border-gray-600 hover:bg-primary hover:border-primary hover:text-white text-gray-600 text-xs rounded-full transition-colors shadow-lg z-10"
               aria-pressed={particleMode === "optimized"}
               aria-label="Toggle particle mode"
               type="button"

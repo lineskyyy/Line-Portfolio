@@ -38,7 +38,8 @@ export function Services() {
           My specialized services to bring your digital vision to life
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop: grid; Mobile: horizontal snap scroll */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -52,6 +53,46 @@ export function Services() {
               <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
             </div>
           ))}
+        </div>
+
+        {/* Mobile horizontal scroller */}
+        <div className="md:hidden relative">
+          <div
+            className="overflow-x-auto snap-x snap-mandatory flex gap-4 py-2 px-4 touch-pan-x -mx-4"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="snap-center flex-shrink-0 w-[85%] sm:w-[70%] p-6 rounded-lg bg-card border border-border transition-all duration-300"
+                style={{ scrollSnapAlign: "center" }}
+              >
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                  <service.icon className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
+              </div>
+            ))}
+          </div>
+          {/* Optional: small left/right hint arrows for non-touch users */}
+          <div className="hidden sm:flex absolute inset-y-0 left-2 items-center pointer-events-none">
+            <div className="w-8 h-8 bg-gradient-to-r from-white/5 to-transparent rounded-full flex items-center justify-center pointer-events-none opacity-70">
+              <svg className="w-4 h-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" />
+              </svg>
+            </div>
+          </div>
+          <div className="hidden sm:flex absolute inset-y-0 right-2 items-center pointer-events-none">
+            <div className="w-8 h-8 bg-gradient-to-l from-white/5 to-transparent rounded-full flex items-center justify-center pointer-events-none opacity-70">
+              <svg className="w-4 h-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </section>

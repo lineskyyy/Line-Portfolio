@@ -144,6 +144,7 @@ class Particle {
   }
 
   draw(ctx, isHovered, centerX, centerY) {
+    // Base opacity and increased contrast/size on hover for text-shaped particles
     let opacity = 0.6
 
     if (this.isTextParticle && isHovered && this.morphDelay > 0) {
@@ -154,12 +155,32 @@ class Particle {
       opacity = 0.4
     }
 
-    const drawSize = this.isTextParticle && isHovered ? this.size * 1.6 : this.size
+    // When hovered, increase prominence but keep modest to avoid heavy rendering
+    // Final tuned hover: modest boost to reduce lag
+    if (this.isTextParticle && isHovered) {
+      opacity = Math.max(opacity, 0.78)
+    }
+
+    const drawSize = this.isTextParticle && isHovered ? this.size * 1.2 : this.size
+
+    // Skip heavy shadow effects on low-end devices to preserve performance
+    const cores = navigator.hardwareConcurrency || 2
+    const isLowEndDevice = cores <= 4 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+
+    ctx.save()
+    if (this.isTextParticle && isHovered && !isLowEndDevice) {
+      const glowColor = this.color.replace("A_VALUE", "0.8")
+      ctx.shadowColor = glowColor
+      ctx.shadowBlur = 3
+    } else {
+      ctx.shadowBlur = 0
+    }
 
     ctx.fillStyle = this.color.replace("A_VALUE", opacity.toFixed(2))
     ctx.beginPath()
     ctx.arc(this.x, this.y, drawSize, 0, Math.PI * 2)
     ctx.fill()
+    ctx.restore()
   }
 }
 
@@ -380,7 +401,10 @@ export default function OptimizedParticle() {
 
     let particlesInitialized = particlesRef.current !== null
 
-    const TEXT_LINES = ["L1N3'S", "W0RLD"]
+  // Use a shorter word on mobile/low-end devices where particle density is lower
+  const cores = navigator.hardwareConcurrency || 2
+  const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  const TEXT_LINES = isMobileUA || cores <= 4 ? ["HI"] : ["L1N3'S", "W0RLD"]
 
     const resizeCanvas = () => {
       const rect = canvas.getBoundingClientRect()
@@ -490,15 +514,24 @@ export default function OptimizedParticle() {
   return (
     <canvas
       ref={canvasRef}
-      onMouseEnter={() => {
+      onPointerEnter={() => {
         isHoveredRef.current = true
         setIsHovered(true)
       }}
-      onMouseLeave={() => {
+      onPointerLeave={() => {
         isHoveredRef.current = false
         setIsHovered(false)
       }}
-      className="block w-full max-w-[900px] h-[250px] md:h-[550px] cursor-pointer mx-auto"
+      onTouchStart={() => {
+        // treat a touch start as a hover-equivalent
+        isHoveredRef.current = true
+        setIsHovered(true)
+      }}
+      onTouchEnd={() => {
+        isHoveredRef.current = false
+        setIsHovered(false)
+      }}
+      className="block w-full max-w-[900px] h-[180px] sm:h-[250px] md:h-[550px] cursor-pointer mx-auto"
       style={{ willChange: "transform" }}
     />
   )

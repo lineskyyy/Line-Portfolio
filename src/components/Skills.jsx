@@ -27,14 +27,15 @@ export function Skills() {
   const fadeGradientColor = `rgb(var(--background))`;
 
   return (
-    <section className="pt-32 px-16 relative ">
+    <section className="pt-32 px-6 md:px-16 relative">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           <span className="text-primary">Tools</span> &{" "}
           <span className="text-accent">Technologies</span>
         </h2>
 
-        <div className="relative h-auto pt-12 pb-24 overflow-x-hidden">
+        {/* Desktop marquee (md+) */}
+        <div className="hidden md:relative md:block h-auto pt-12 pb-24 overflow-hidden">
           <div className="flex gap-12 animate-scroll">
             {[...skills, ...skills].map((skill, index) => (
               <div
@@ -95,21 +96,56 @@ export function Skills() {
               </div>
             ))}
           </div>
-
-          {/* Fade edges - using dynamic styles to match the theme background */}
-          <div
-            className="absolute inset-y-0 left-0 w-32 pointer-events-none z-10"
-            style={{
-              background: `linear-gradient(to right, ${fadeGradientColor}, transparent)`,
-            }}
-          />
-          <div
-            className="absolute inset-y-0 right-0 w-32 pointer-events-none z-10"
-            style={{
-              background: `linear-gradient(to left, ${fadeGradientColor}, transparent)`,
-            }}
-          />
         </div>
+
+        {/* Mobile marquee (continuous movement like desktop) */}
+        <div className="md:hidden relative h-auto pt-8 pb-12 overflow-hidden">
+          <div className="flex gap-6 animate-scroll">
+            {[...skills, ...skills].map((skill, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-28 relative group"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <div
+                  className={`absolute -top-12 left-1/2 -translate-x-1/2 bg-primary/90 backdrop-blur-md text-primary-foreground px-3 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap z-20 border border-primary/30 shadow-[0_0_16px_rgba(20,184,166,0.35)] transition-all duration-300 ${
+                    hoveredIndex === index
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 -translate-y-2 pointer-events-none"
+                  }`}
+                >
+                  {skill.name}
+                </div>
+
+                <div className="w-20 h-20 flex items-center justify-center text-4xl relative cursor-pointer transition-transform duration-300 ease-out group-hover:scale-110 mx-auto">
+                  <div className="absolute inset-0 bg-accent/10 backdrop-blur-sm rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-accent/20" />
+                  {typeof skill.icon === "string" && !skill.icon.endsWith(".svg") ? (
+                    <span className="relative z-10 select-none">{skill.icon}</span>
+                  ) : (
+                    <img src={skill.icon} alt={skill.name} className="w-12 h-12 relative z-10 select-none object-contain" />
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Fade edges - show on all screen sizes */}
+        <div
+          className="absolute inset-y-0 left-0 pointer-events-none z-10"
+          style={{
+            width: "4rem",
+            background: `linear-gradient(to right, ${fadeGradientColor}, transparent)`,
+          }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 pointer-events-none z-10"
+          style={{
+            width: "4rem",
+            background: `linear-gradient(to left, ${fadeGradientColor}, transparent)`,
+          }}
+        />
       </div>
     </section>
   );

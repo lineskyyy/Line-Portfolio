@@ -161,11 +161,11 @@ export default function WorkPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground overflow-hidden gradient-bg-2">
+  <div className="relative min-h-screen bg-background text-foreground overflow-hidden gradient-bg-2">
       {/* 3. USE the new component */}
       <AnimatedBackground />
 
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-24 sm:py-28 lg:py-32 max-w-7xl mx-auto space-y-32">
+  <div className="relative z-10 px-6 md:px-16 py-16 sm:py-24 lg:py-32 max-w-7xl mx-auto space-y-28">
         <h1 className="text-center text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-20 pb-8 animate-fade-in-up border-b-2 border-e-primary-foreground">
           My <span className="text-accent">Projects</span>
         </h1>
@@ -267,7 +267,7 @@ function WorkGallery({
     >   
     <RetroElements />
       <div
-        className="mb-8 w-full max-w-4xl px-2 sm:px-4 animate-fade-in-up"
+        className="mb-6 w-full max-w-4xl px-4 sm:px-6 animate-fade-in-up"
         style={{ animationDelay: `${index * 0.2 + 0.1}s` }}
       >
         <h2 className="text-3xl sm:text-4xl font-bold mb-2 hover:text-accent transition-colors duration-300">
@@ -305,7 +305,7 @@ function WorkGallery({
         style={{ animationDelay: `${index * 0.2 + 0.2}s` }}
       >
         <div
-          className="relative w-full h-[280px] sm:h-[340px] md:h-[400px]"
+          className="relative w-full h-[220px] sm:h-[300px] md:h-[400px]"
           style={{ perspective: "2000px" }}
         >
           {images.map((img, i) => {
@@ -340,7 +340,7 @@ function WorkGallery({
                 <img
                   src={img || "/placeholder.svg"}
                   alt={`${title} preview ${i + 1}`}
-                  className="w-[240px] sm:w-[280px] md:w-[320px] h-[140px] sm:h-[180px] md:h-[200px] object-cover rounded-xl border border-accent/20 shadow-[0_0_40px_rgba(20,184,166,0.25)]"
+                  className="w-[85vw] sm:w-[280px] md:w-[320px] h-[140px] sm:h-[180px] md:h-[200px] object-cover rounded-xl border border-accent/20 shadow-[0_0_40px_rgba(20,184,166,0.25)] mx-auto"
                 />
 
                 {/* Reflection */}
@@ -356,7 +356,7 @@ function WorkGallery({
                     <img
                     src={img || "/placeholder.svg"}
                     alt=""
-                    className="w-[240px] sm:w-[280px] md:w-[320px] h-[60px] sm:h-[80px] md:h-[90px] object-cover object-bottom rounded-xl scale-y-[-1]"
+                    className="w-[85vw] sm:w-[280px] md:w-[320px] h-[60px] sm:h-[80px] md:h-[90px] object-cover object-bottom rounded-xl scale-y-[-1] mx-auto"
                     style={{
                       opacity: isSelected ? 0.4 : 0.35,
                       maskImage:

@@ -40,7 +40,10 @@ export function About() {
               <div className="relative w-full h-full flex items-center justify-center">
                 <ImageGallery />
               </div> */}
-              <RotatingGlobe />
+              {/* Interactive globe only visible on md+ to avoid heavy canvas on mobile */}
+              <div className="hidden md:block w-full">
+                <RotatingGlobe />
+              </div>
 
               {/* Futuristic corner nodes */}
               <span className="absolute top-4 left-4 w-3 h-3 bg-accent/70 rounded-full blur-sm shadow-[0_0_10px_rgba(0,255,255,0.6)]" />

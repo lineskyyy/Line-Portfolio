@@ -48,10 +48,21 @@ export function Projects() {
           </Link>
         </div>
 
-        <div className="space-y-24">
+        {/* Desktop: stacked list; Mobile: horizontal snap scroller */}
+        <div className="hidden md:block space-y-24">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} index={index} />
           ))}
+        </div>
+
+        <div className="md:hidden">
+          <div className="overflow-x-auto snap-x snap-mandatory flex gap-6 py-4 px-4 -mx-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+            {projects.map((project, index) => (
+              <div key={index} className="snap-center flex-shrink-0 w-[85%] sm:w-[70%]">
+                <ProjectCard {...project} index={index} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

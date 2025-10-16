@@ -88,7 +88,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <section className="min-h-screen py-32 px-6 relative z-10">
+    <section className="min-h-screen py-16 md:py-32 px-6 md:px-16 relative z-10">
       <RetroElements />
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-[300px_1fr] gap-12">
@@ -356,6 +356,7 @@ export default function AboutPage() {
                     </div>
                   ))}
                 </div>
+
                 <h2 className="text-3xl font-bold mb-8">Certifications</h2>
                 <div className="grid gap-6 relative">
                   {certificates.map((cert, index) => (
