@@ -19,7 +19,7 @@ export function Hero() {
       <RetroElements />
 
       <div className="container mx-auto relative z-10">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
+        <div className="max-w-5xl mx-auto text-center space-y-6">
           <p className="text-muted-foreground text-sm uppercase tracking-wider animate-fade-in-up">
             Hey, why don't you try to hover on these particles :D
           </p>
@@ -32,8 +32,7 @@ export function Hero() {
             className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up"
             style={{ animationDelay: "0.5s" }}
           >
-            Welcome to my <span className="text-primary">personal</span>{" "}and{" "}
-            <span className="text-accent">professional</span>{" "}<span className="text-secondary">portfolio</span>.
+            Welcome to my personal and professional{" "}<span className="text-primary">portfolio</span>.
           </p>
 
           <div
@@ -51,7 +50,7 @@ export function Hero() {
               download="Linus Sambile_Resume.pdf"
               className="px-6 py-3 border border-border rounded-lg hover:scale-105 transition-transform bg-transparent inline-block"
             >
-              Download Resume
+              Download Resumé
             </a>
           </div>
 
