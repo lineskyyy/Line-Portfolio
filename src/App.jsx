@@ -7,6 +7,7 @@ import { AnimatedBackground } from "./components/AnimatedBackground"
 import HomePage from "./pages/HomePage"
 import AboutPage from "./pages/AboutPage"
 import WorkPage from "./pages/WorkPage"
+import Footer from "./components/Footer"
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -31,7 +32,8 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/work" element={<WorkPage />} />
           </Routes>
-          <ScrollIndicator />
+          <Footer />
+          {/* <ScrollIndicator /> */}
         </main>
       </Router>
     </ThemeProvider>

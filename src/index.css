@@ -266,3 +266,11 @@
 
 
 /* Gradient background animations */
+@keyframes fadeEdge {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.animate-fadeEdge {
+  animation: fadeEdge 3s ease-in-out infinite;
+}

@@ -327,10 +327,12 @@ export default function ParticleText() {
 
     let particlesInitialized = particlesRef.current !== null
 
-  // Use a shorter word on mobile/low-end devices where particle density is lower
+  // Use a shorter word on mobile/low-end devices or narrow viewports where particle density is lower
   const cores = navigator.hardwareConcurrency || 2
   const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-  const TEXT_LINES = isMobileUA || cores <= 4 ? ["HI"] : ["L1N3'S", "W0RLD"]
+  // viewport-based detection (matches Tailwind's md breakpoint ~ 768px)
+  const isNarrowViewport = typeof window !== 'undefined' && (window.matchMedia ? window.matchMedia('(max-width: 767px)').matches : window.innerWidth <= 767)
+  const TEXT_LINES = isMobileUA || cores <= 4 || isNarrowViewport ? ["HI"] : ["L1N3'S", "W0RLD"]
 
     const resizeCanvas = () => {
       const rect = canvas.getBoundingClientRect()
@@ -390,11 +392,27 @@ export default function ParticleText() {
   return (
     <canvas
       ref={canvasRef}
+      // Pointer events handle mouse + touch in modern browsers
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(true)}
-      onTouchEnd={() => setIsHovered(false)}
-      className="block w-full max-w-[900px] h-[180px] sm:h-[250px] md:h-[550px] cursor-pointer mx-auto"
+      onPointerDown={(e) => {
+        // prevent default to avoid text-selection/context-menu initiation on long press
+        try {
+          e.preventDefault()
+        } catch (err) {}
+        setIsHovered(true)
+      }}
+      onPointerUp={(e) => {
+        try {
+          e.preventDefault()
+        } catch (err) {}
+        setIsHovered(false)
+      }}
+      onContextMenu={(e) => e.preventDefault()}
+      // Prevent text selection and disable iOS callout; allow normal scrolling gestures
+  style={{ userSelect: "none", WebkitUserSelect: "none", WebkitTouchCallout: "none", touchAction: "manipulation" }}
+  // add extra bottom margin on mobile and increase canvas height for better spacing
+  className="select-none block w-full max-w-[900px] h-[220px] sm:h-[280px] md:h-[550px] mb-6 md:mb-0 cursor-pointer mx-auto"
     />
   )
 }

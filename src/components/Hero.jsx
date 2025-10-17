@@ -1,10 +1,33 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import { Github, Linkedin, Instagram, Mail } from "lucide-react"
 import { RetroElements } from "./RetroElements"
 import ParticleText from "./ParticleText"
 import OptimizedParticle from "./OptimizedParticle"
 export function Hero() {
   const [particleMode, setParticleMode] = useState("optimized")
+
+  // Force original ParticleText on small screens (mobile) and hide the toggle there.
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return
+
+    const mq = window.matchMedia('(max-width: 767px)')
+
+    const apply = (e) => {
+      if (e.matches) {
+        setParticleMode('original')
+      }
+    }
+
+    // Initial check
+    if (mq.matches) setParticleMode('original')
+
+    // Listen for changes to handle orientation/resize
+    mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply)
+
+    return () => {
+      mq.removeEventListener ? mq.removeEventListener('change', apply) : mq.removeListener(apply)
+    }
+  }, [])
 
   const scrollToSection = useCallback((sectionId) => {
     if (typeof window === "undefined") return
@@ -23,17 +46,20 @@ export function Hero() {
       <RetroElements />
 
       <div className="container mx-auto relative z-10">
-        <div className="max-w-5xl mx-auto text-center space-y-4">
-          <p className="text-muted-foreground text-sm uppercase tracking-wider animate-fade-in-up">
+        {/* increase vertical spacing on mobile: more breathing room between paragraphs and particle area */}
+        {/* <div className="max-w-5xl mx-auto text-center space-y-11 md:space-y-3"> */}
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-muted-foreground text-sm uppercase mb-20 md:mb-4 tracking-wider animate-fade-in-up">
             Hey, why don't you try to hover on these particles :D
           </p>
 
-          <div className="animate-fade-in-up relative flex flex-col items-center" style={{ animationDelay: "0.2s" }}>
+          <div className="animate-fade-in-up relative flex flex-col  mb-20 md:mb-2 items-center" style={{ animationDelay: "0.2s" }}>
             {particleMode === "optimized" ? <OptimizedParticle key="optimized" /> : <ParticleText key="original" />}
 
             <button
               onClick={() => setParticleMode((prev) => (prev === "optimized" ? "original" : "optimized"))}
-              className="md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2 mt-3 md:mt-0 w-auto px-2 py-1 border border-gray-600 hover:bg-primary hover:border-primary hover:text-white text-gray-600 text-xs rounded-full transition-colors shadow-lg z-10"
+              // Hidden on small screens; visible on md and up. Positioning preserved for larger viewports.
+              className="hidden md:inline-block md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 mt-3 md:mt-0 w-auto px-2 py-1 border border-gray-600 hover:bg-primary hover:border-primary hover:text-white text-gray-600 text-xs rounded-full transition-colors shadow-lg z-10"
               aria-pressed={particleMode === "optimized"}
               aria-label="Toggle particle mode"
               type="button"
@@ -43,7 +69,7 @@ export function Hero() {
           </div>
 
           <p
-            className="text-lg md:text-xl mt-12 text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up"
+            className="text-lg md:text-xl mt-12 md:mt-16 text-muted-foreground mb-4 md:mb-2 max-w-3xl mx-auto leading-relaxed animate-fade-in-up"
             style={{ animationDelay: "0.5s" }}
           >
             Welcome to my personal and professional <span className="text-primary">portfolio</span>.

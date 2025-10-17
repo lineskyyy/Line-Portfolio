@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const skills = [
   { name: "JavaScript", icon: "/icons/javascript.svg" }, // fallback emoji example
-  { name: "Node.js", icon: "/icons/nodejs-icon.svg"},
+  { name: "Node.js", icon: "/icons/nodejs-icon.svg" },
   { name: "Figma", icon: "/icons/figma.svg" },
   { name: "GitHub", icon: "/icons/github.svg" },
   { name: "HTML5", icon: "/icons/html5.svg" },
@@ -27,7 +27,7 @@ export function Skills() {
   const fadeGradientColor = `rgb(var(--background))`;
 
   return (
-    <section className="pt-32 px-6 md:px-16 relative">
+    <section id="skills" className="pt-32 px-6 md:px-16 relative">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           <span className="text-primary">Tools</span> &{" "}
@@ -58,10 +58,13 @@ export function Skills() {
                 {/* Icon container with hover glow */}
                 <div className="w-20 h-20 flex items-center justify-center text-5xl relative cursor-pointer transition-transform duration-300 ease-out group-hover:scale-125">
                   <div className="absolute inset-0 bg-accent/10 backdrop-blur-sm rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-accent/20 shadow-[0_0_25px_rgba(20,184,166,0.3)]" />
-                  
+
                   {/* Render SVG or emoji */}
-                  {typeof skill.icon === "string" && !skill.icon.endsWith(".svg") ? (
-                    <span className="relative z-10 select-none">{skill.icon}</span>
+                  {typeof skill.icon === "string" &&
+                  !skill.icon.endsWith(".svg") ? (
+                    <span className="relative z-10 select-none">
+                      {skill.icon}
+                    </span>
                   ) : (
                     <img
                       src={skill.icon}
@@ -83,7 +86,8 @@ export function Skills() {
                       "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 80%)",
                   }}
                 >
-                  {typeof skill.icon === "string" && !skill.icon.endsWith(".svg") ? (
+                  {typeof skill.icon === "string" &&
+                  !skill.icon.endsWith(".svg") ? (
                     <span>{skill.icon}</span>
                   ) : (
                     <img
@@ -120,10 +124,17 @@ export function Skills() {
 
                 <div className="w-20 h-20 flex items-center justify-center text-4xl relative cursor-pointer transition-transform duration-300 ease-out group-hover:scale-110 mx-auto">
                   <div className="absolute inset-0 bg-accent/10 backdrop-blur-sm rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-accent/20" />
-                  {typeof skill.icon === "string" && !skill.icon.endsWith(".svg") ? (
-                    <span className="relative z-10 select-none">{skill.icon}</span>
+                  {typeof skill.icon === "string" &&
+                  !skill.icon.endsWith(".svg") ? (
+                    <span className="relative z-10 select-none">
+                      {skill.icon}
+                    </span>
                   ) : (
-                    <img src={skill.icon} alt={skill.name} className="w-12 h-12 relative z-10 select-none object-contain" />
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="w-12 h-12 relative z-10 select-none object-contain"
+                    />
                   )}
                 </div>
               </div>
@@ -132,20 +143,25 @@ export function Skills() {
         </div>
 
         {/* Fade edges - show on all screen sizes */}
-        <div
-          className="absolute inset-y-0 left-0 pointer-events-none z-10"
-          style={{
-            width: "4rem",
-            background: `linear-gradient(to right, ${fadeGradientColor}, transparent)`,
-          }}
-        />
-        <div
-          className="absolute inset-y-0 right-0 pointer-events-none z-10"
-          style={{
-            width: "4rem",
-            background: `linear-gradient(to left, ${fadeGradientColor}, transparent)`,
-          }}
-        />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-20">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%)",
+            }}
+          ></div>
+        </div>
+
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 z-20">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%)",
+            }}
+          ></div>
+        </div>
       </div>
     </section>
   );

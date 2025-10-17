@@ -1,8 +1,8 @@
 export function RetroElements() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Animated Gears */}
-      <div className="absolute top-20 left-10 animate-spin-slow opacity-20">
+      {/* Animated Gears - Position adjusted for mobile (more centered) and opacity/size reduced on small screens */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 sm:top-20 sm:left-10 sm:translate-x-0 animate-spin-slow opacity-10 sm:opacity-20 scale-50 sm:scale-100">
         <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M60 20L65 35H75L67 43L70 58L60 50L50 58L53 43L45 35H55L60 20Z"
@@ -21,7 +21,8 @@ export function RetroElements() {
         </svg>
       </div>
 
-      <div className="absolute bottom-32 right-20 animate-spin-reverse opacity-15">
+      {/* Small Gear - Moved and scaled for mobile */}
+      <div className="absolute bottom-10 right-10 sm:bottom-32 sm:right-20 animate-spin-reverse opacity-10 sm:opacity-15 scale-75 sm:scale-100">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="40" cy="40" r="25" stroke="currentColor" strokeWidth="6" className="text-primary" />
           <circle cx="40" cy="15" r="4" fill="currentColor" className="text-primary" />
@@ -33,8 +34,8 @@ export function RetroElements() {
         </svg>
       </div>
 
-      {/* Retro Laptop */}
-      <div className="absolute top-1/2 right-10 -translate-y-1/2 animate-float opacity-10">
+      {/* Retro Laptop - Hidden on small screens to reduce clutter, visible from 'md' breakpoint */}
+      <div className="absolute top-1/2 right-10 -translate-y-1/2 animate-float opacity-10 hidden md:block">
         <svg width="200" height="150" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Laptop Screen */}
           <rect x="30" y="10" width="140" height="90" rx="4" fill="currentColor" className="text-secondary" />
@@ -67,8 +68,8 @@ export function RetroElements() {
         </svg>
       </div>
 
-      {/* Pixel Art Elements */}
-      <div className="absolute top-40 right-1/4 animate-bounce-slow opacity-20">
+      {/* Pixel Art Elements - Hidden on small screens */}
+      <div className="absolute top-40 right-1/4 animate-bounce-slow opacity-20 hidden md:block">
         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="0" y="20" width="10" height="10" fill="currentColor" className="text-accent" />
           <rect x="10" y="10" width="10" height="10" fill="currentColor" className="text-accent" />
@@ -82,8 +83,8 @@ export function RetroElements() {
         </svg>
       </div>
 
-      {/* Retro Computer Monitor */}
-      <div className="absolute bottom-40 left-20 animate-pulse-slow opacity-10">
+      {/* Retro Computer Monitor - Position adjusted and hidden on mobile */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 sm:bottom-40 sm:left-20 sm:translate-x-0 animate-pulse-slow opacity-10 scale-75 sm:scale-100 hidden sm:block">
         <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Monitor */}
           <rect x="20" y="20" width="110" height="80" rx="8" fill="currentColor" className="text-primary" />
@@ -98,17 +99,18 @@ export function RetroElements() {
         </svg>
       </div>
 
-      {/* Floating Brackets */}
-      <div className="absolute top-1/3 left-1/4 animate-float-delayed opacity-15">
-        <span className="text-6xl font-bold text-secondary">{"{ }"}</span>
+      {/* Floating Brackets - Scaled down for mobile */}
+      <div className="absolute top-1/4 left-5 sm:top-1/3 sm:left-1/4 animate-float-delayed opacity-15 scale-75 sm:scale-100">
+        <span className="text-4xl sm:text-6xl font-bold text-secondary">{"{ }"}</span>
       </div>
 
-      <div className="absolute bottom-1/3 right-1/3 animate-float opacity-15">
-        <span className="text-6xl font-bold text-primary">{"< />"}</span>
+      {/* Floating Angle Brackets - Scaled down for mobile */}
+      <div className="absolute bottom-1/4 right-5 sm:bottom-1/3 sm:right-1/3 animate-float opacity-15 scale-75 sm:scale-100">
+        <span className="text-4xl sm:text-6xl font-bold text-primary">{"< />"}</span>
       </div>
 
-      {/* Retro Grid Lines */}
-      <div className="absolute inset-0 opacity-5">
+      {/* Retro Grid Lines - Opacity reduced on mobile for less distraction */}
+      <div className="absolute inset-0 opacity-2 sm:opacity-5">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
